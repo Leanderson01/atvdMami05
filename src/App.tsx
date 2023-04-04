@@ -4,11 +4,13 @@ import Carrinho from "./Carrinho";
 
 function App() {
   const [posicao, setPosicao] = useState(100);
+  const largura = window.screen.width;
+  const width = largura - 400;
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setPosicao((posicao) => posicao + 40); // velocidade de 5 pixels por loop
-    }, 100); // a cada 100 milissegundos
+      setPosicao((posicao) => (posicao > width ? 0 : posicao + 40));
+    }, 100);
 
     return () => clearInterval(intervalId);
   }, []);

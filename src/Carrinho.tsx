@@ -10,7 +10,7 @@ export default function Carrinho({ posicao }: Props) {
     <div
       style={{
         position: "absolute",
-        top: "100px",
+        top: "25rem",
         left: posicao + "px",
         width: "50px",
         height: "50px",
