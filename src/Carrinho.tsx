@@ -1,4 +1,5 @@
 import React from "react";
+import Minecart from "./assets/minecart.png";
 
 type Props = {
   posicao: number;
@@ -15,7 +16,7 @@ export default function Carrinho({ posicao }: Props) {
         height: "50px",
       }}
     >
-      <img src="carrinho.png" alt="Carrinho" />
+      <img src={Minecart} alt="Carrinho" />
     </div>
   );
 }
