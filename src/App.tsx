@@ -24,6 +24,14 @@ function App() {
       } else {
         setSegundos((segundos) => segundos + 0);
       }
+
+      const test = 889;
+
+      width < 890
+        ? alert(
+            "Esse site não pode ser renderizado em telas pequenas. Por favor, entre novamente com uma tela um pouco maior."
+          )
+        : null;
     }, 1000);
 
     return () => clearInterval(intervalId);
