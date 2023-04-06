@@ -6,9 +6,24 @@ function App() {
   const [posicao, setPosicao] = useState(0);
   const [segundos, setSegundos] = useState(0);
   const [start, setStart] = useState(false);
+  const [border, setBorder] = useState(0);
+
+  const screen = window.screen.width;
 
   useEffect(() => {
-    const width = window.screen.width - 400;
+    // const screenTest = 754;
+
+    if (screen > 1000) {
+      return setBorder(400);
+    } else if (screen < 1000 && screen > 755) {
+      return setBorder(950);
+    } else if (screen < 755) {
+      alert(
+        "Esse site não pode ser renderizado em telas pequenas. Por favor, entre novamente com uma tela um pouco maior."
+      );
+    }
+
+    const width = window.screen.width - border;
     const intervalId = setInterval(() => {
       if (posicao > width) {
         clearInterval(intervalId);
@@ -24,18 +39,10 @@ function App() {
       } else {
         setSegundos((segundos) => segundos + 0);
       }
-
-      const test = 889;
-
-      width < 890
-        ? alert(
-            "Esse site não pode ser renderizado em telas pequenas. Por favor, entre novamente com uma tela um pouco maior."
-          )
-        : null;
     }, 1000);
 
     return () => clearInterval(intervalId);
-  }, [segundos, start]);
+  }, [segundos, start, screen]);
 
   function clear() {
     setPosicao(0);
